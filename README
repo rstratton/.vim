@@ -1,0 +1,29 @@
+====================
++++ Installation +++
+====================
+
+Clone:
+    git clone git://github.com/rstratton/.vim.git ~/.vim
+
+Create symlinks:
+
+    ln -s ~/.vim/vimrc ~/.vimrc
+    ln -s ~/.vim/gvimrc ~/.gvimrc
+
+Switch to the `~/.vim` directory, and fetch submodules:
+
+    cd ~/.vim
+    git submodule init
+    git submodule update
+
+
+
+==============================
++++ Submodule Installation +++
+==============================
+
+cd ~/.vim
+mkdir ~/.vim/bundle
+git submodule add http://github.com/<github_acct>/<plugin>.git bundle/<plugin_name>
+git add .
+git commit -m "Install <plugin> as a submodule."

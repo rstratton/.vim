@@ -2,10 +2,16 @@
 noremap j gj
 noremap k gk
 
-"Tab settings
+"Tab key settings
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+"Tab and buffer navigation
+map <C-J> :bnext<CR>
+map <C-K> :bprev<CR>
+map <C-H> :tabp<CR>
+map <C-L> :tabn<CR>
 
 "Open help in new tab
 :cabbrev help tab help

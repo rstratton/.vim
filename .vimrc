@@ -2,16 +2,20 @@
 noremap j gj
 noremap k gk
 
+"Open/close folds with spacebar
+nnoremap <space> za
+
 "Tab key settings
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
-"Tab and buffer navigation
-map <C-J> :bnext<CR>
-map <C-K> :bprev<CR>
-map <C-H> :tabp<CR>
-map <C-L> :tabn<CR>
+
+"Split navigation
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
 
 "Open help in new tab
 :cabbrev help tab help
@@ -42,33 +46,61 @@ set encoding=utf-8  " Necessary to show Unicode glyphs
 let g:Powerline_symbols = 'fancy'
 
 ""Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_check_on_open=1
-let g:syntastic_echo_current_error=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_check_on_open=1
+"let g:syntastic_echo_current_error=1
+"let g:syntastic_error_symbol='✗'
+"let g:syntastic_warning_symbol='⚠'
 
 "Solarized colorscheme
 "set background=dark            "Solarized option
 "let g:solarized_termcolors=16  "Makes solarized work
 "let g:solarized_termtrans=1    "Makes solarized work
 "colorscheme solarized
-colorscheme wombat256
+colorscheme molokai
 
 "Show whitespace
 set list lcs=tab:\ \ ,trail:~,extends:>,precedes:<
 
 "Show 80 char width
-execute "set colorcolumn=" . join(range(81,335), ',')
+execute "set colorcolumn=" . join(range(81,81), ',')
 :hi ColorColumn ctermbg=black guibg=black
 
 "Keybindings
 map <C-e> <esc>:NERDTreeToggle<CR>
 
 "Hi-light cursor line
-set cul
+"set cul
 
 "gundo toggle binding
 nnoremap <C-u> :GundoToggle<CR>
+
+"Mac terminal mouse scrolling
+set mouse=a
+
+"Set .conf file to use nginx syntax hi-lighting
+au BufRead,BufNewFile *.conf set filetype=nginx
+au BufNewFile,BufRead *.boo set filetype=boo
+
+
+"CtrlP stuff
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"" CTRLP Settings
+
+" Custom file list command for ctrlp, super fast!
+let g:ctrlp_user_command =
+  \ ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" ctrl p window at top of screen
+let g:ctrlp_match_window_bottom = 0
+
+"" Use Ag (silver surfer) instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Set indent amount to 2 for Ruby files
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2

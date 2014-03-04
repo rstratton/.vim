@@ -1,16 +1,16 @@
 Installation:
-    git clone git://github.com/rstratton/.vim.git ~/.vim
+    git clone git@github.com:rstratton/.vim.git ~/.vim
     cd ~/.vim
     ./install.sh
 
 Submodule Installation:
     cd ~/.vim
-    mkdir ~/.vim/bundle
+    mkdir -p ~/.vim/bundle
     git submodule add http://github.com/<github_acct>/<plugin>.git bundle/<plugin_name>
     git add .
     git commit -m "Install <plugin> as a submodule."
 
-Submodule Removal:
+Submodule Removal (from http://stackoverflow.com/a/1260982):
     1) Delete the relevant section from the .gitmodules file.
     2) Stage the .gitmodules changes (git add .gitmodules)
     3) Delete the relevant section from ".git/config".

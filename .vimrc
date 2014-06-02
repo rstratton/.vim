@@ -84,6 +84,8 @@ set mouse=a
 au BufRead,BufNewFile *.conf set filetype=nginx
 au BufNewFile,BufRead *.boo set filetype=boo
 
+"Allow Vim to inspect the first ten lines of a file for modelines
+set modelines=10
 
 "CtrlP stuff
 set runtimepath^=~/.vim/bundle/ctrlp.vim

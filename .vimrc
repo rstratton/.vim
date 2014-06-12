@@ -69,7 +69,8 @@ execute "set colorcolumn=" . join(range(81,81), ',')
 :hi ColorColumn ctermbg=black guibg=black
 
 "Keybindings
-map <C-e> <esc>:NERDTreeToggle<CR>
+"map <C-e> <esc>:NERDTreeToggle<CR>
+map <C-e> <esc>:NERDTreeTabsToggle<CR>
 
 "Hi-light cursor line
 "set cul

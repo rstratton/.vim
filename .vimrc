@@ -59,7 +59,7 @@ let g:Powerline_symbols = 'fancy'
 "let g:solarized_termcolors=16  "Makes solarized work
 "let g:solarized_termtrans=1    "Makes solarized work
 "colorscheme solarized
-colorscheme molokai2
+colorscheme molokai
 
 "Show whitespace
 set list lcs=tab:\ \ ,trail:~,extends:>,precedes:<

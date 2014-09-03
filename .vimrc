@@ -66,7 +66,7 @@ set list lcs=tab:\ \ ,trail:~,extends:>,precedes:<
 
 "Show 80 char width
 execute "set colorcolumn=" . join(range(81,81), ',')
-:hi ColorColumn ctermbg=black guibg=black
+:hi ColorColumn ctermbg=red guibg=red
 
 "Keybindings
 "map <C-e> <esc>:NERDTreeToggle<CR>

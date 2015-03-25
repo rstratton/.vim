@@ -84,6 +84,7 @@ set mouse=a
 "Set .conf file to use nginx syntax hi-lighting
 au BufRead,BufNewFile *.conf set filetype=nginx
 au BufNewFile,BufRead *.boo set filetype=boo
+au BufNewFile,BufRead *.sls set filetype=yaml
 
 "Allow Vim to inspect the first ten lines of a file for modelines
 set modelines=10
@@ -105,5 +106,6 @@ let g:ctrlp_match_window_bottom = 0
 "" Use Ag (silver surfer) instead of ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-" Set indent amount to 2 for Ruby files
+" Set indent amount to 2 for certain filetypes
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2

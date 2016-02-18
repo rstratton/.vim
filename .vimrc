@@ -84,7 +84,6 @@ set mouse=a
 "Set .conf file to use nginx syntax hi-lighting
 au BufRead,BufNewFile *.conf set filetype=nginx
 au BufNewFile,BufRead *.boo set filetype=boo
-au BufNewFile,BufRead *.sls set filetype=yaml
 
 "Allow Vim to inspect the first ten lines of a file for modelines
 set modelines=10

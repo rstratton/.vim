@@ -16,7 +16,7 @@ fi
 ln -s "${INSTALL_DIR}/.vim/.vimrc" "${INSTALL_DIR}/.vimrc"
 
 # Download custom color scheme
-wget -O "${INSTALL_DIR}/.vim/bundle/vim-colorschemes/colors/molokai2.vim" "https://raw.github.com/tomasr/molokai/master/colors/molokai.vim"
+wget -O "${INSTALL_DIR}/.vim/bundle/vim-colorschemes/colors/molokai2.vim" "https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim"
 
 # Configure Git
 git config --global user.email "r.a.stratton88@gmail.com"

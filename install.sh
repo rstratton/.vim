@@ -1,6 +1,7 @@
 #!/bin/sh
 
-INSTALL_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd )"
+SCRIPT_REL_DIR=$(dirname "${BASH_SOURCE[0]}")
+INSTALL_DIR="$( cd "${SCRIPT_REL_DIR}/.." && pwd )"
 
 # Install plugin submodules
 (cd "${INSTALL_DIR}/.vim"; git submodule update --init)

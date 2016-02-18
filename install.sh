@@ -1,15 +1,23 @@
 #!/bin/sh
 
-(cd ~/.vim; git submodule update --init)
+INSTALL_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd )"
 
-if [ -e ~/.vimrc ]
+# Install plugin submodules
+(cd "${INSTALL_DIR}/.vim"; git submodule update --init)
+
+# Backup existing vimrc, if it exists
+if [ -e "${INSTALL_DIR}/.vimrc" ]
 then
-    mv ~/.vimrc ~/.vimrc.orig
+    mv "${INSTALL_DIR}/.vimrc" "${INSTALL_DIR}/.vimrc.orig"
 fi
-ln -s `pwd`/.vimrc ~/.vimrc
 
-curl "https://raw.github.com/tomasr/molokai/master/colors/molokai.vim" > ~/.vim/bundle/vim-colorschemes/colors/molokai2.vim
+# Create symlink to vimrc located in repo
+ln -s "${INSTALL_DIR}/.vim/.vimrc" "${INSTALL_DIR}/.vimrc"
 
+# Download custom color scheme
+wget -O "${INSTALL_DIR}/.vim/bundle/vim-colorschemes/colors/molokai2.vim" "https://raw.github.com/tomasr/molokai/master/colors/molokai.vim"
+
+# Configure Git
 git config --global user.email "r.a.stratton88@gmail.com"
 git config --global user.name "Robert Stratton"
 git config --global color.ui "auto"

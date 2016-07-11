@@ -10,6 +10,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+"Enable built-in matchit macro
+runtime macros/matchit.vim
 
 "Split navigation
 map <C-j> <C-w>j

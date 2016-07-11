@@ -71,7 +71,7 @@ set list lcs=tab:\ \ ,trail:~,extends:>,precedes:<
 
 "Show 80 char width
 execute "set colorcolumn=" . join(range(81,81), ',')
-:hi ColorColumn ctermbg=red guibg=red
+:hi ColorColumn ctermbg=DarkGray guibg=DarkGray
 
 "Keybindings
 "map <C-e> <esc>:NERDTreeToggle<CR>
@@ -103,9 +103,6 @@ let g:ctrlp_user_command =
   \ ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-" ctrl p window at top of screen
-let g:ctrlp_match_window_bottom = 0
 
 "" Use Ag (silver surfer) instead of ack
 let g:ackprg = 'ag --nogroup --nocolor --column'

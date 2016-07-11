@@ -42,10 +42,13 @@ syntax on                   "Enable syntax highlighting
 filetype plugin indent on   "Enable filetype specific indentation and plugins
 
 "Required for powerline
+set rtp+=/usr/local/lib/python3.5/site-packages/powerline/bindings/vim/
 set nocompatible    " Disable vi-compatibility
 set laststatus=2    " Always show the statusline
+set t_Co=256
 set encoding=utf-8  " Necessary to show Unicode glyphs
-let g:Powerline_symbols = 'fancy'
+set term=xterm-256color
+set termencoding=utf-8
 
 ""Syntastic settings
 "set statusline+=%#warningmsg#

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# NOTE: powerline is installed via pip.  To install:
+#       brew install python3
+#       pip3 install powerline-status
+
 SCRIPT_REL_DIR=$(dirname "${BASH_SOURCE[0]}")
 INSTALL_DIR="$( cd "${SCRIPT_REL_DIR}/.." && pwd )"
 

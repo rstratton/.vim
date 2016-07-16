@@ -5,6 +5,9 @@ noremap k gk
 "Open/close folds with spacebar
 nnoremap <space> za
 
+"Keep cursor centered vertically
+set scrolloff=999
+
 "Tab key settings
 set tabstop=4
 set shiftwidth=4

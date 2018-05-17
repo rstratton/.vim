@@ -5,9 +5,6 @@ noremap k gk
 "Open/close folds with spacebar
 nnoremap <space> za
 
-"Keep cursor centered vertically
-set scrolloff=999
-
 "Tab key settings
 set tabstop=4
 set shiftwidth=4
@@ -45,7 +42,7 @@ syntax on                   "Enable syntax highlighting
 filetype plugin indent on   "Enable filetype specific indentation and plugins
 
 "Required for powerline
-set rtp+=/usr/local/lib/python3.5/site-packages/powerline/bindings/vim/
+set rtp+=/usr/local/lib/python3.6/site-packages/powerline/bindings/vim/
 set nocompatible    " Disable vi-compatibility
 set laststatus=2    " Always show the statusline
 set t_Co=256
@@ -111,5 +108,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Set indent amount to 2 for certain filetypes
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby    setlocal ts=2 sts=2 sw=2
+autocmd Filetype yaml    setlocal ts=2 sts=2 sw=2
+autocmd Filetype html    setlocal ts=2 sts=2 sw=2
+autocmd Filetype python  setlocal ts=4 sts=4 sw=4

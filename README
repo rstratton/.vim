@@ -1,4 +1,5 @@
 Installation:
+    brew install wget
     brew install python3
     pip3 install powerline-status
     git clone git@github.com:rstratton/.vim.git ~/.vim

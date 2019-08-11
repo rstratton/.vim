@@ -23,6 +23,5 @@ ln -s "${INSTALL_DIR}/.vim/.vimrc" "${INSTALL_DIR}/.vimrc"
 wget -O "${INSTALL_DIR}/.vim/bundle/vim-colorschemes/colors/molokai2.vim" "https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim"
 
 # Configure Git
-git config --global user.email "r.a.stratton88@gmail.com"
 git config --global user.name "Robert Stratton"
 git config --global color.ui "auto"

@@ -42,7 +42,7 @@ syntax on                   "Enable syntax highlighting
 filetype plugin indent on   "Enable filetype specific indentation and plugins
 
 "Required for powerline
-set rtp+=/usr/local/lib/python3.6/site-packages/powerline/bindings/vim/
+set rtp+=/usr/local/lib/python3.7/site-packages/powerline/bindings/vim/
 set nocompatible    " Disable vi-compatibility
 set laststatus=2    " Always show the statusline
 set t_Co=256
@@ -50,20 +50,6 @@ set encoding=utf-8  " Necessary to show Unicode glyphs
 set term=xterm-256color
 set termencoding=utf-8
 
-""Syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_check_on_open=1
-"let g:syntastic_echo_current_error=1
-"let g:syntastic_error_symbol='✗'
-"let g:syntastic_warning_symbol='⚠'
-
-"Solarized colorscheme
-"set background=dark            "Solarized option
-"let g:solarized_termcolors=16  "Makes solarized work
-"let g:solarized_termtrans=1    "Makes solarized work
-"colorscheme solarized
 colorscheme molokai
 
 "Show whitespace
@@ -74,14 +60,7 @@ execute "set colorcolumn=" . join(range(81,81), ',')
 :hi ColorColumn ctermbg=DarkGray guibg=DarkGray
 
 "Keybindings
-"map <C-e> <esc>:NERDTreeToggle<CR>
 map <C-e> <esc>:NERDTreeTabsToggle<CR>
-
-"Hi-light cursor line
-"set cul
-
-"gundo toggle binding
-nnoremap <C-u> :GundoToggle<CR>
 
 "Mac terminal mouse scrolling
 set mouse=a

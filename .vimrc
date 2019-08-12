@@ -11,9 +11,6 @@ map <C-l> <C-w>l
 "Mac terminal mouse scrolling
 set mouse=a
 
-"Open/close folds with spacebar
-nnoremap <space> za
-
 "Tab key settings
 set tabstop=4
 set shiftwidth=4
@@ -56,13 +53,16 @@ autocmd Filetype python  setlocal ts=4 sts=4 sw=4
 call plug#begin('~/.vim/vim-plug/')
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeTabsToggle'] }
 Plug 'jistr/vim-nerdtree-tabs', { 'on':  'NERDTreeTabsToggle' }
-Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " Colorscheme
@@ -73,6 +73,16 @@ colorscheme gruvbox
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_tab_type = 0
 
 " NERDTree
 map <C-e> <esc>:NERDTreeTabsToggle<CR>
+
+" fzf
+nnoremap <C-p> :Files<Cr>
+nnoremap <C-g> :Rg<Cr>

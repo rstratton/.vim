@@ -76,8 +76,3 @@ let g:airline#extensions#tabline#enabled = 1
 
 " NERDTree
 map <C-e> <esc>:NERDTreeTabsToggle<CR>
-
-" VIM Ruby
-let ruby_operators = 1
-let ruby_pseudo_operators = 1
-let ruby_fold = 1

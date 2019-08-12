@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# NOTE: powerline is installed via pip.  To install:
-#       brew install python3
-#       pip3 install powerline-status
-
 SCRIPT_REL_DIR=$(dirname "${BASH_SOURCE[0]}")
 INSTALL_DIR="$( cd "${SCRIPT_REL_DIR}/.." && pwd )"
 
@@ -18,9 +14,6 @@ fi
 
 # Create symlink to vimrc located in repo
 ln -s "${INSTALL_DIR}/.vim/.vimrc" "${INSTALL_DIR}/.vimrc"
-
-# Download custom color scheme
-wget -O "${INSTALL_DIR}/.vim/bundle/vim-colorschemes/colors/molokai2.vim" "https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim"
 
 # Configure Git
 git config --global user.name "Robert Stratton"

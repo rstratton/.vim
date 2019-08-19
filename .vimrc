@@ -65,6 +65,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " Colorscheme

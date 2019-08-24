@@ -1,3 +1,6 @@
+"Set leader key
+let mapleader=" "
+
 "Move down/up only a single line when lines wrap
 noremap j gj
 noremap k gk
@@ -41,10 +44,11 @@ execute "set colorcolumn=" . join(range(81,81), ',')
 :hi ColorColumn ctermbg=237 guibg=#3c3836
 
 " Set indent amount to 2 for certain filetypes
-autocmd Filetype ruby    setlocal ts=2 sts=2 sw=2
-autocmd Filetype yaml    setlocal ts=2 sts=2 sw=2
-autocmd Filetype html    setlocal ts=2 sts=2 sw=2
-autocmd Filetype python  setlocal ts=4 sts=4 sw=4
+autocmd Filetype ruby       setlocal ts=2 sts=2 sw=2
+autocmd Filetype yaml       setlocal ts=2 sts=2 sw=2
+autocmd Filetype html       setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype python     setlocal ts=4 sts=4 sw=4
 
 """""""""""
 " Plugins "
@@ -66,6 +70,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " Colorscheme
@@ -115,3 +120,32 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" EasyMotion
+
+" Only require a single Leader key press to use (2 presses is default)
+map <Leader> <Plug>(easymotion-prefix)
+
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+
+" Let 'v' match 'v' and 'V'; 'V' only matches 'V'
+let g:EasyMotion_smartcase = 1
+
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" `s{char}{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)

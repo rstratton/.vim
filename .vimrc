@@ -55,8 +55,8 @@ autocmd Filetype python     setlocal ts=4 sts=4 sw=4
 """""""""""
 
 call plug#begin('~/.vim/vim-plug/')
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeTabsToggle'] }
-Plug 'jistr/vim-nerdtree-tabs', { 'on':  'NERDTreeTabsToggle' }
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
@@ -71,12 +71,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'thoughtbot/vim-rspec'
 call plug#end()
+
 
 " Colorscheme
 set termguicolors
 let g:gruvbox_invert_selection=0
 colorscheme gruvbox
+
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -88,13 +92,24 @@ let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 
+
 " NERDTree
 map <C-e> <esc>:NERDTreeTabsToggle<CR>
 
+
 " fzf
+let $FZF_DEFAULT_COMMAND = 'rg --files'
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+
 nnoremap <C-p> :Files<Cr>
 nnoremap <C-g> :Rg<Cr>
-
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -111,6 +126,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -121,8 +137,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" EasyMotion
 
+" EasyMotion
 " Only require a single Leader key press to use (2 presses is default)
 map <Leader> <Plug>(easymotion-prefix)
 
@@ -149,3 +165,14 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
+
+
+" rust.vim
+let g:rustfmt_autosave = 1
+
+
+" vim-rspec
+map <Leader>tc :call RunCurrentSpecFile()<CR>
+map <Leader>ts :call RunNearestSpec()<CR>
+map <Leader>tl :call RunLastSpec()<CR>
+map <Leader>ta :call RunAllSpecs()<CR>

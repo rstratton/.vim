@@ -50,11 +50,16 @@ autocmd Filetype html       setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype python     setlocal ts=4 sts=4 sw=4
 
+" Custom mappings
+map <Leader>fs :w<CR>
+map <Leader>wd :q<CR>
+
 """""""""""
 " Plugins "
 """""""""""
 
 call plug#begin('~/.vim/vim-plug/')
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'
@@ -62,17 +67,25 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-ruby/vim-ruby'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'thoughtbot/vim-rspec'
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'tpope/vim-surround'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 
@@ -95,6 +108,8 @@ let g:airline#extensions#tabline#show_tab_type = 0
 
 " NERDTree
 map <C-e> <esc>:NERDTreeTabsToggle<CR>
+map <Leader>pt <esc>:NERDTreeTabsToggle<CR>
+map <Leader>pf <esc>:NERDTreeFind<CR>
 
 
 " fzf
@@ -128,14 +143,14 @@ let g:fzf_colors =
 
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 
 " EasyMotion
@@ -166,9 +181,11 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 
+map <Leader>b :Buffers<Cr>
+
 
 " rust.vim
-let g:rustfmt_autosave = 1
+" let g:rustfmt_autosave = 1
 
 
 " vim-rspec

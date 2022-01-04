@@ -37,7 +37,7 @@ set incsearch   "Start finding search results as you type
 set ic          "Ignore case in searches
 
 "Show whitespace
-set list lcs=tab:\ \ ,trail:~,extends:>,precedes:<
+set list lcs=tab:⇒\⇒,trail:·,extends:»,precedes:«
 
 "Show 80 char width
 execute "set colorcolumn=" . join(range(81,81), ',')
@@ -104,6 +104,8 @@ let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline_section_b = ''
+let g:airline_section_z = ''
 
 
 " NERDTree
@@ -152,6 +154,8 @@ let g:fzf_colors =
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
+" Ale
+let g:ale_python_mypy_executable = 'pipenv'
 
 " EasyMotion
 " Only require a single Leader key press to use (2 presses is default)

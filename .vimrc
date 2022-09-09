@@ -49,6 +49,7 @@ autocmd Filetype yaml       setlocal ts=2 sts=2 sw=2
 autocmd Filetype html       setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype python     setlocal ts=4 sts=4 sw=4
+autocmd Filetype go         setlocal ts=4 sts=4 sw=4 list lcs=tab:\ \ ,trail:·,extends:»,precedes:«
 
 " Custom mappings
 map <Leader>fs :w<CR>
@@ -74,6 +75,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 " Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
@@ -86,6 +88,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
 Plug 'dense-analysis/ale'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 
